@@ -1,0 +1,27 @@
+{
+  "name": "cobble-ui",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Minecraft-styled pixel-art UI component library for Vue 3",
+  "scripts": {
+    "dev": "pnpm --filter @cobble-ui/docs dev",
+    "build": "pnpm --filter @cobble-ui/web-vue build",
+    "docs:dev": "pnpm --filter @cobble-ui/docs dev",
+    "docs:build": "pnpm --filter @cobble-ui/docs build",
+    "lint": "oxlint packages/",
+    "test": "pnpm --filter @cobble-ui/web-vue test"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.1",
+    "@types/node": "^20.11.0",
+    "husky": "^8.0.3",
+    "oxlint": "^0.2.0",
+    "typescript": "^5.3.3",
+    "vue-tsc": "^1.8.27"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

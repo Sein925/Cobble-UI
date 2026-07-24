@@ -1,0 +1,166 @@
+$pixel-size: 4px;
+
+@font-face {
+  font-family: 'Mojangles';
+  src: url('../assets/fonts/mojangles.woff2') format('woff2'),
+       url('../assets/fonts/mojangles.woff') format('woff'),
+       url('../assets/fonts/mojangles.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+$mc-font: 'Mojangles', 'Press Start 2P', 'Courier New', monospace;
+
+:root {
+  --mc-primary: #4CAF50;
+  --mc-primary-dark: #388E3C;
+  --mc-secondary: #FF9800;
+  --mc-secondary-dark: #F57C00;
+  --mc-accent: #E91E63;
+  --mc-accent-dark: #C2185B;
+  --mc-background: #F5F5F5;
+  --mc-surface: #FFFFFF;
+  --mc-border: #BDBDBD;
+  --mc-border-light: #E0E0E0;
+  --mc-text: #212121;
+  --mc-text-secondary: #757575;
+  --mc-text-muted: #BDBDBD;
+  --mc-success: #4CAF50;
+  --mc-success-dark: #388E3C;
+  --mc-warning: #FF9800;
+  --mc-warning-dark: #F57C00;
+  --mc-error: #F44336;
+  --mc-error-dark: #C62828;
+  --mc-info: #2196F3;
+  --mc-info-dark: #1976D2;
+  --mc-button-bg: #E0E0E0;
+  --mc-button-hover: #EEEEEE;
+  --mc-button-pressed: #BDBDBD;
+  --mc-input-bg: #FFFFFF;
+  --mc-font-xs: clamp(8px, 0.8vw, 10px);
+  --mc-font-sm: clamp(10px, 1vw, 12px);
+  --mc-font-md: clamp(12px, 1.2vw, 14px);
+  --mc-font-lg: clamp(14px, 1.4vw, 16px);
+  --mc-font-xl: clamp(16px, 1.6vw, 18px);
+}
+
+html.dark {
+  --mc-primary: #66BB6A;
+  --mc-primary-dark: #43A047;
+  --mc-secondary: #FFB74D;
+  --mc-secondary-dark: #FF9800;
+  --mc-accent: #F48FB1;
+  --mc-accent-dark: #CE93D8;
+  --mc-background: #191919;
+  --mc-surface: #282828;
+  --mc-border: #4C4C4C;
+  --mc-border-light: #5C5C5C;
+  --mc-text: #FFFFFF;
+  --mc-text-secondary: #AAAAAA;
+  --mc-text-muted: #888888;
+  --mc-success: #4CAF50;
+  --mc-success-dark: #388E3C;
+  --mc-warning: #FF9800;
+  --mc-warning-dark: #F57C00;
+  --mc-error: #F44336;
+  --mc-error-dark: #C62828;
+  --mc-info: #2196F3;
+  --mc-info-dark: #1976D2;
+  --mc-button-bg: #3C3C3C;
+  --mc-button-hover: #4C4C4C;
+  --mc-button-pressed: #2C2C2C;
+  --mc-input-bg: #1E1E1E;
+}
+
+@mixin pixel-border($color: var(--mc-border), $width: 2px) {
+  border: $width solid $color;
+  outline: none;
+}
+
+@mixin pixel-shadow($color: var(--mc-border), $offset: $pixel-size) {
+  box-shadow: $offset $offset 0 $color;
+}
+
+@mixin pixel-shadow-inset($color: var(--mc-border), $offset: $pixel-size) {
+  box-shadow: inset $offset $offset 0 $color;
+}
+
+@mixin pixel-transition {
+  transition: all 0.15s ease;
+}
+
+@mixin pixel-font {
+  font-family: $mc-font;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+@mixin minecraft-button {
+  background-color: var(--mc-button-bg);
+  border: 2px solid;
+  border-color: var(--mc-border-light) var(--mc-border) var(--mc-border) var(--mc-border-light);
+  color: var(--mc-text);
+  font-family: $mc-font;
+  font-size: var(--mc-font-md);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: inset -2px -2px 0 rgba(0,0,0,0.3),
+              inset 2px 2px 0 rgba(255,255,255,0.1);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--mc-button-hover);
+    box-shadow: inset -2px -2px 0 rgba(0,0,0,0.3),
+                inset 2px 2px 0 rgba(255,255,255,0.15);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--mc-button-pressed);
+    border-color: var(--mc-border) var(--mc-border-light) var(--mc-border-light) var(--mc-border);
+    box-shadow: inset 2px 2px 0 rgba(0,0,0,0.3),
+                inset -2px -2px 0 rgba(255,255,255,0.1);
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@mixin minecraft-panel {
+  background-color: var(--mc-surface);
+  border: 2px solid;
+  border-color: var(--mc-border-light) var(--mc-border) var(--mc-border) var(--mc-border-light);
+  box-shadow: inset -2px -2px 0 rgba(0,0,0,0.2),
+              inset 2px 2px 0 rgba(255,255,255,0.05);
+}
+
+@mixin minecraft-input {
+  background-color: var(--mc-input-bg);
+  border: 2px solid;
+  border-color: var(--mc-border) var(--mc-border-light) var(--mc-border-light) var(--mc-border);
+  color: var(--mc-text);
+  font-family: $mc-font;
+  font-size: var(--mc-font-md);
+  outline: none;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.3),
+              inset -2px -2px 0 rgba(255,255,255,0.05);
+  
+  &:focus {
+    border-color: var(--mc-primary) var(--mc-primary-dark) var(--mc-primary-dark) var(--mc-primary);
+    box-shadow: inset 2px 2px 0 rgba(0,0,0,0.3),
+                inset -2px -2px 0 rgba(255,255,255,0.05);
+  }
+  
+  &::placeholder {
+    color: var(--mc-text-muted);
+  }
+}
+
+.mc-text {
+  font-family: $mc-font;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
