@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Cobble UI',
   description: '一个 Minecraft 风格的像素艺术 UI 组件库',
-  base: '/cobble-ui/',
+  base: '/',
   lang: 'zh-CN',
   appearance: true,
   vite: {
@@ -78,11 +78,11 @@ export default defineConfig({
       }
     ],
     footer: {
-      message: 'Made with ❤️ by Cobble UI Team',
+      message: 'Made with ❤️ by Sein925',
       copyright: 'Copyright 2026 Cobble UI'
     },
     editLink: {
-      pattern: 'https://github.com/cobble-ui/cobble-ui/edit/main/packages/docs/:path',
+      pattern: 'https://github.com/Sein925/Cobble-UI/edit/main/packages/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
     search: {

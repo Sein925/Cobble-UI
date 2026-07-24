@@ -6,7 +6,7 @@ hero:
   text: 像素风 UI 组件库
   tagline: 怀旧像素美学、可树摇组件、深浅主题、开箱即用、类型安全
   image:
-    src: /cobble-ui/logo.webp
+    src: /logo.webp
     alt: Cobble UI Logo
   actions:
     - theme: brand

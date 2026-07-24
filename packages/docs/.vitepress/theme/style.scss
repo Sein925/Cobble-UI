@@ -371,21 +371,23 @@ body {
 
 .VPHome {
   .VPHero {
+    padding: 80px 24px 60px;
+
     .container {
-      padding: 80px 24px 60px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .inner {
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 32px;
+      padding: 40px;
       background-color: var(--vp-c-bg-surface);
       border: 2px solid;
       border-color: var(--vp-c-border-light) var(--vp-c-border) var(--vp-c-border) var(--vp-c-border-light);
@@ -394,54 +396,51 @@ body {
     }
 
     .name {
-      font-size: clamp(32px, 5vw, 56px);
+      font-size: clamp(36px, 6vw, 64px);
       font-weight: bold;
       background: none;
       color: var(--vp-c-brand);
       text-shadow: $pixel-size $pixel-size 0 var(--vp-c-brand-dark);
       letter-spacing: 2px;
       margin: 0;
-      white-space: nowrap;
-      overflow: visible;
+      line-height: 1.2;
     }
 
     .text {
-      font-size: clamp(18px, 2.5vw, 28px);
+      font-size: clamp(18px, 2.5vw, 30px);
       margin-top: 16px;
       color: var(--vp-c-text);
       text-shadow: 2px 2px 0 var(--vp-c-border);
-      white-space: nowrap;
-      overflow: visible;
+      line-height: 1.4;
     }
 
     .tagline {
-      font-size: clamp(12px, 1.4vw, 15px);
-      margin-top: 20px;
+      font-size: clamp(13px, 1.5vw, 16px);
+      margin-top: 24px;
       color: var(--vp-c-text-secondary);
       line-height: 2;
       letter-spacing: 1px;
-      white-space: normal;
-      overflow: visible;
       max-width: 100%;
+      word-break: keep-all;
     }
 
     .actions {
-      margin-top: 32px;
+      margin-top: 36px;
       gap: 16px;
       flex-wrap: wrap;
       justify-content: center;
+      display: flex;
 
       .VPButton {
         border-radius: 0;
         font-family: var(--vp-font-family-base);
-        font-size: 13px;
+        font-size: clamp(12px, 1.2vw, 14px);
         font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
-        padding: 10px 20px;
+        padding: 12px 24px;
         border: 2px solid;
         transition: all 0.15s ease;
-        white-space: nowrap;
 
         &.brand {
           background-color: var(--vp-c-brand);
@@ -481,15 +480,16 @@ body {
     }
 
     .image-container {
-      margin-top: 32px;
+      margin-top: 40px;
+      flex-shrink: 0;
 
       .image-bg {
         opacity: 0;
       }
 
       img {
-        width: 120px;
-        height: 120px;
+        width: clamp(80px, 10vw, 140px);
+        height: clamp(80px, 10vw, 140px);
         image-rendering: pixelated;
         border: 2px solid var(--vp-c-border);
         box-shadow: $pixel-size $pixel-size 0 var(--vp-c-border);
@@ -498,18 +498,29 @@ body {
   }
 
   .VPFeatures {
+    display: block !important;
+    float: none !important;
+
     .container {
-      max-width: 1152px;
+      max-width: 1200px;
       padding: 0 24px 80px;
+      margin: 0 auto;
     }
 
     .items {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 24px;
+      grid-auto-flow: row !important;
+      flex-direction: row !important;
     }
 
     .item {
+      display: block !important;
+      float: none !important;
+      width: auto !important;
+      height: auto !important;
+
       .VPFeature {
         background-color: var(--vp-c-bg-surface);
         border: 2px solid;
@@ -519,6 +530,15 @@ body {
         padding: 24px;
         transition: all 0.15s ease;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+        white-space: normal;
+        width: auto !important;
+        min-width: 0;
 
         &:hover {
           transform: translate(-2px, -2px);
@@ -538,6 +558,7 @@ body {
           background-color: rgba(76, 175, 80, 0.08);
           border: 2px solid var(--vp-c-border);
           border-radius: 0;
+          flex-shrink: 0;
 
           img {
             width: 32px;
@@ -551,12 +572,18 @@ body {
           color: var(--vp-c-text);
           margin-bottom: 8px;
           letter-spacing: 1px;
+          writing-mode: horizontal-tb !important;
+          white-space: normal;
+          line-height: 1.4;
         }
 
         .details {
           font-size: 13px;
           color: var(--vp-c-text-secondary);
           line-height: 1.8;
+          writing-mode: horizontal-tb !important;
+          white-space: normal;
+          word-break: break-word;
         }
       }
     }
