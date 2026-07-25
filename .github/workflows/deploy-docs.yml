@@ -42,4 +42,4 @@ jobs:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: packages/docs/.vitepress/dist
           force_orphan: true
-          external_repository: Sein925/cobble-ui.github.io
+          external_repository: cobble-ui/cobble-ui.github.io

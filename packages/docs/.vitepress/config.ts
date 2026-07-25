@@ -20,7 +20,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/starting' },
       { text: '组件', link: '/components/button' },
-      { text: 'GitHub', link: 'https://github.com' }
+      { text: 'GitHub', link: 'https://github.com/cobble-ui/cobble-ui' }
     ],
     sidebar: [
       {
@@ -78,11 +78,11 @@ export default defineConfig({
       }
     ],
     footer: {
-      message: 'Made with ❤️ by Sein925',
+      message: 'Made with ❤️ by Cobble UI',
       copyright: 'Copyright 2026 Cobble UI'
     },
     editLink: {
-      pattern: 'https://github.com/Sein925/Cobble-UI/edit/main/packages/docs/:path',
+      pattern: 'https://github.com/cobble-ui/cobble-ui/edit/main/packages/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
     search: {
