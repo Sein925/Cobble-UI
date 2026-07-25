@@ -70,6 +70,7 @@ $pixel-size: 4px;
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
   
   &--sm {
     .mc-progress__track {

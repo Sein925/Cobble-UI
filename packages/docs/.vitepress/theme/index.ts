@@ -1,3 +1,4 @@
+import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { reactive } from 'vue'
 import McButton from '../../../cobble-ui/src/components/Button/McButton.vue'
@@ -40,7 +41,7 @@ const demoState = reactive({
   progressValue: 50,
 })
 
-export default {
+const theme: Theme = {
   ...DefaultTheme,
   enhanceApp({ app }) {
     app.config.globalProperties.$demoState = demoState
@@ -68,3 +69,5 @@ export default {
     app.component('ComponentDemo', ComponentDemo)
   }
 }
+
+export default theme

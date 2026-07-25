@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   code?: string
 }>()
 
 const showCode = ref(false)
+
+const formattedCode = computed(() => {
+  if (!props.code) return ''
+  const raw = props.code.trim()
+  // 已经包含 <template> 或 <script> 标签则不再包裹
+  if (raw.startsWith('<template>') || raw.startsWith('<script')) {
+    return raw
+  }
+  const indented = raw.split('\n').map(line => `  ${line}`).join('\n')
+  return `<template>\n${indented}\n</template>`
+})
 </script>
 
 <template>
@@ -17,12 +28,12 @@ const showCode = ref(false)
       {{ showCode ? '隐藏代码' : '显示代码' }}
     </button>
     <div v-if="showCode && code" class="component-demo__code">
-      <pre><code>{{ code }}</code></pre>
+      <pre><code>{{ formattedCode }}</code></pre>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 $pixel-size: 4px;
 
 .component-demo {

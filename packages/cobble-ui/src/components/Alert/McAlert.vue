@@ -6,12 +6,12 @@ import { clsx } from '@/utils/classNames'
 defineOptions({ name: 'McAlert' })
 
 const props = withDefaults(defineProps<{
-  type?: Status
+  status?: Status
   title?: string
   closable?: boolean
   center?: boolean
 }>(), {
-  type: 'info',
+  status: 'info',
   closable: true,
   center: false
 })
@@ -22,7 +22,7 @@ const emit = defineEmits<{
 
 const alertClasses = computed(() => clsx(
   'mc-alert',
-  `mc-alert--${props.type}`,
+  `mc-alert--${props.status}`,
   {
     'mc-alert--center': props.center
   }
@@ -36,7 +36,7 @@ const iconClass = computed(() => {
     info: 'ℹ',
     default: 'ℹ'
   }
-  return icons[props.type]
+  return icons[props.status]
 })
 
 const handleClose = () => {
